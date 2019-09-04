@@ -4,7 +4,7 @@
             <li :key="index" :class="item.status">
                 <input name="status-toggle" :checked="item.status === 'completed'" type="checkbox"
                        @change="handleToggleActive(index)">
-                <a href="" class="content">{{item.content}}</a>
+                <span href="" class="content">{{item.content}}</span>
             </li>
         </template>
     </ul>

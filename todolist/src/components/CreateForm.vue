@@ -15,7 +15,7 @@
         },
         methods: {
             handleCreateTodo: function () {
-               this.$store.dispatch("postTodos",this.inputtingItem);
+               this.$store.dispatch("putTodos");
                this.inputtingItem='';
             }
         }

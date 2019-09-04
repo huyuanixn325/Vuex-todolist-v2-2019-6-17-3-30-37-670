@@ -1,4 +1,8 @@
 import axios from "axios";
+import vue from "vue"
+import iView from 'iview';
+import 'iview/dist/styles/iview.css';
+vue.use(iView);
 
 export default {
     strict: true,
@@ -7,7 +11,7 @@ export default {
             {status: 'completed', content: '吃饭'},
             {status: 'completed', content: '睡觉'},
             {status: 'completed', content: '打豆豆'}
-        ],
+        ], isShow:false,
         currentFilter: 'all'
     },
     getters: {
@@ -62,7 +66,19 @@ export default {
                 console.log(error.response);
                 console.log(error);
                 });
-        },
+        },putTodos:function(context){
+            const url = "http://5b4dcb2aec112500143a2311.mockapi.io/api/todos/115";
+            axios.put(url,{
+                id:115,
+                content:"迷失的小羔羊",
+                status:'completed'
+            }).then(function(response){
+                if(response.status==200) context.dispatch('fetchTodos');
+            }).catch(function(error){
+                console.log(error.response);
+                console.log(error);
+            });  
+        }
        
     }
 }
